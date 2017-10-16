@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div style="overflow: hidden;">
+            <a id="koszykHeaderLink" href="link">
+                Koszyk (0)
+                <span></span>
+            </a>
+            <a id="indexHeaderLogo" href="@Url.Action("Index","Home")">
+                <img src="@Url.Content("~/Content/Images/logo.png")" class="center" />
+            </a>
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("StronyStatyczne", "Home", new {nazwa = "Onas"})">O nas</a></li>
+                <li><a href="@Url.Action("StronyStatyczne", "Home", new {nazwa = "Spolecznosc"}, null)">Społeczność</a></li>
+                <li><a href="@Url.Action("StronyStatyczne", "Home", new {nazwa = "Opinie"}, null)">Opinie</a></li>
+                <li><a href="@Url.Action("StronyStatyczne", "Home", new {nazwa = "Pomoc"}, null)">Pomoc</a></li>
+                <li><a href="@Url.Action("StronyStatyczne", "Home", new {nazwa = "Regulamin"}, null)">Regulamin</a></li>
+                <li><a href="@Url.Action("StronyStatyczne", "Home", new {nazwa = "Kontakt"}, null)">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div id="footerLogo">
+        </div>
+        <div id="footerCopyright">
+            Copyright &copy; 2017 P. Kursy
+        </div>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+
+    </body>
+
+</html>
