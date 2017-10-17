@@ -24,6 +24,18 @@ namespace sklepInternetowy
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "KursyLista",
+                url: "Kategoria/{nazwaKategorii}",
+                defaults: new { controller = "Kursy", action = "Lista" }
+            );
+
+            routes.MapRoute(
+                name: "KursySzczegoly",
+                url: "kurs-{id}.html",
+                defaults: new { controller = "Kursy", action = "Szczegoly" }
+);
         }
     }
 }

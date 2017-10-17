@@ -17,20 +17,20 @@ namespace sklepInternetowy.DAL
         {
             var kategorie = new List<Kategoria> 
             {
-                new Kategoria() {NazwaKategorii = "asp.net mvc", NazwaPlikuIkony = "aspnet.png", OpisKategorii = "Opis asp.net mvc", KategoriaId = 1},
-                new Kategoria() {NazwaKategorii = "javascript", NazwaPlikuIkony = "javascript.png", OpisKategorii = "Opis javascript", KategoriaId = 2},
-                new Kategoria() {NazwaKategorii = "php", NazwaPlikuIkony = "php.jpg", OpisKategorii = "Opis php", KategoriaId = 3}
-            };
+                new Kategoria() { KategoriaId = 1, NazwaKategorii = "asp.net mvc", NazwaPlikuIkony = "aspnet.png", OpisKategorii = "Opis asp.net mvc"},
+                new Kategoria() { KategoriaId = 2, NazwaKategorii = "javascript", NazwaPlikuIkony = "javascript.png", OpisKategorii = "Opis javascript"},
+                new Kategoria() { KategoriaId = 3, NazwaKategorii = "php", NazwaPlikuIkony = "php.jpg", OpisKategorii = "Opis php"}
+            }; 
 
             kategorie.ForEach(k => context.Kategorie.AddOrUpdate(k));
-            context.SaveChanges();
+            context.SaveChanges(); 
 
 
             var kursy = new List<Kurs>
             {
-                new Kurs() {AutorKursu = "Tomek", TytulKursu = "asp.net mvc", KategoriaId = 1, CenaKursu = 99, Bestseller = true, NazwaPlikuObrazka = "obrazekaspnet.png", DataDodania = DateTime.Now, OpisKursu = "Opis kursu1", KursId = 1},
-                new Kurs() {AutorKursu = "Jurek", TytulKursu = "javascript", KategoriaId = 1, CenaKursu = 120, Bestseller = true, NazwaPlikuObrazka = "obrazekjavascript.png", DataDodania = DateTime.Now, OpisKursu = "Opis kursu2", KursId = 2},
-                new Kurs() {AutorKursu = "Wojtek", TytulKursu = "csharp", KategoriaId = 1, CenaKursu = 120, Bestseller = true, NazwaPlikuObrazka = "obrazekcsharp.png", DataDodania = DateTime.Now, OpisKursu = "Opis kursu3", KursId = 3}
+                new Kurs() { KursId = 1, AutorKursu = "Tomek", TytulKursu = "asp.net", KategoriaId = 1, CenaKursu = 99, Bestseller = true, NazwaPlikuObrazka = "obrazekaspnet.png", DataDodania = DateTime.Now, OpisKursu = "Opis kursu1"},
+                new Kurs() { KursId = 2, AutorKursu = "Jurek", TytulKursu = "javascript", KategoriaId = 1, CenaKursu = 120, Bestseller = true, NazwaPlikuObrazka = "obrazekjavascript.png", DataDodania = DateTime.Now, OpisKursu = "Opis kursu2"},
+                new Kurs() { KursId = 3, AutorKursu = "Wojtek", TytulKursu = "csharp", KategoriaId = 1, CenaKursu = 120, Bestseller = true, NazwaPlikuObrazka = "obrazekcsharp.png", DataDodania = DateTime.Now, OpisKursu = "Opis kursu3"}
             };
 
             kursy.ForEach(k => context.Kursy.AddOrUpdate(k));
@@ -40,4 +40,4 @@ namespace sklepInternetowy.DAL
         }
 
     }
-}
+} 

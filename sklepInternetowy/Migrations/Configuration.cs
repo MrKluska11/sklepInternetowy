@@ -30,7 +30,7 @@ namespace sklepInternetowy.Migrations
             //    );
             //
 
-            KursyInitializer2.SeedKursyData(context);
+           // KursyInitializer2.SeedKursyData(context);
 
         }
     }

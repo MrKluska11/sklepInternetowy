@@ -31,7 +31,7 @@ namespace sklepInternetowy.Controllers
                 Kategorie = kategorie,
                 Nowosci = nowosci,
                 Bestsellery = bestsellery
-            };
+            }; 
 
             return View(vm);
         }
@@ -40,5 +40,6 @@ namespace sklepInternetowy.Controllers
         {
             return View(nazwa);
         }
+
 	}
 }

@@ -12,10 +12,10 @@ namespace sklepInternetowy.DAL
     {
         public KursyContext() : base("KursyContext") { } 
 
-        static KursyContext()
+        /*static KursyContext()
         {
             Database.SetInitializer<KursyContext>(new KursyInitializer2());
-        }
+        } */
 
         public DbSet<Kurs> Kursy { get; set; }
         public DbSet<Kategoria> Kategorie { get; set; }

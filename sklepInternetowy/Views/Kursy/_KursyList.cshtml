@@ -3,7 +3,7 @@
 
 
 
-<ul class="KursyTrzyKolumny KursCena">
+<ul class="KursyTrzyKolumny MalaListaKategorii">
     @foreach(var kurs in Model)
     { 
     <li>
@@ -11,6 +11,12 @@
             <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka", "Koszyk", new { id = kurs.KursId })">
                 <img src="@Url.Content("~/Content/Images/koszyk.png")" />
             </a>
+
+            @if (kurs.Bestseller)
+            {
+                <div class="bestsellerFlag"></div>
+            }
+
             <a class="kursSzczegolyLink" href="@Url.Action("Szczegoly","Kursy", new {id = kurs.KursId })">
                 <img class="kurs" src="@Url.ObrazkiSciezka(kurs.NazwaPlikuObrazka)" />
                 <h1>

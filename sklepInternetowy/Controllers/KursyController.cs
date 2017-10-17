@@ -19,12 +19,18 @@ namespace sklepInternetowy.Controllers
 
         public ActionResult Lista(string nazwaKategorii)
         {
-            return View();
+            var kategoria = db.Kategorie.Include("Kursy").Where(k => k.NazwaKategorii.ToUpper() == nazwaKategorii.ToUpper()).Single();
+
+            var kursy = kategoria.Kursy.ToList();
+
+            return View(kursy);
         }
 
-        public ActionResult Szczegoly(string id)
+        public ActionResult Szczegoly(int id)
         {
-            return View();
+            var kurs = db.Kursy.Find(id);
+
+            return View(kurs);
         }
 
         [ChildActionOnly]  //ta akcja może być wywoływane tylko poprzez inną akcję
