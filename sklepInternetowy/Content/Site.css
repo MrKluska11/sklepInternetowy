@@ -188,9 +188,9 @@ nav.kategorieHorizontal ul {
             display: block;
             height: 100%;
             padding-left: 127px;
-            background-repeat: no-repeat;
             background-position-x: 50px;
             background-position-y: 50%;
+background-repeat: no-repeat;
         }
 
         nav.kategorieHorizontal ul li:hover {

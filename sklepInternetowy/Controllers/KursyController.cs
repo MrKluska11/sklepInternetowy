@@ -34,6 +34,7 @@ namespace sklepInternetowy.Controllers
         }
 
         [ChildActionOnly]  //ta akcja może być wywoływane tylko poprzez inną akcję
+        [OutputCache(Duration = 60000)]  //60000 sekund = 1 dzień; dane nie są pobierane z bazy tylko są w cache przez 60000 sekund
         public ActionResult KategorieMenu()
         {
             var kategorie = db.Kategorie.ToList();
