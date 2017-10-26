@@ -42,5 +42,6 @@ namespace sklepInternetowy.Controllers
             return PartialView("_KategorieMenu", kategorie);
               
         }
+
 	}
 }
