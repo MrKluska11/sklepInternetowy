@@ -97,5 +97,43 @@ namespace sklepInternetowy.Infrastructure
 
             return koszyk.Sum(k => k.ilosc);
         }
+
+        public Zamowienie UtworzZamowienie(Zamowienie noweZamowienie, string userId)
+        {
+            var koszyk = PobierzKoszyk();
+
+            noweZamowienie.DataZamowienia = DateTime.Now;
+            //noweZamowienie.UserId = userId;
+
+            db.Zamowienia.Add(noweZamowienie);
+
+            if (noweZamowienie.PozycjeZamowienia == null)
+                noweZamowienie.PozycjeZamowienia = new List<PozycjaZamowienia>();
+
+            decimal koszykWartosc = 0;
+
+            foreach(var koszykElement in koszyk)
+            {
+                var nowaPozycjaZamowienia = new PozycjaZamowienia()
+                {
+                    KursId = koszykElement.kurs.KursId,
+                    Ilosc = koszykElement.ilosc,
+                    CenaZakupu = koszykElement.wartosc
+                };
+
+                koszykWartosc += (koszykElement.ilosc * koszykElement.kurs.CenaKursu);
+                noweZamowienie.PozycjeZamowienia.Add(nowaPozycjaZamowienia);
+            }
+
+            noweZamowienie.WartoscZamowienia = koszykWartosc;
+            db.SaveChanges();
+
+            return noweZamowienie;
+        }
+
+        public void PustyKoszyk()
+        {
+            session.Set<List<PozycjaKoszyka>>(Consts.KoszykSessionKlucz, null);
+        }
     }
 }
